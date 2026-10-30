@@ -26,6 +26,7 @@
   "packageManager": "npm@10.8.2",
   "overrides": {
     "react": "19.3.0",
-    "react-dom": "19.3.0"
+    "react-dom": "19.3.0",
+    "react-native": "0.88.1"
   }
 }
