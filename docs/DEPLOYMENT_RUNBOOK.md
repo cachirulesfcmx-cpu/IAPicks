@@ -9,21 +9,21 @@
 
 ## 2. Supabase
 
-Proyecto: el de IAPicks (ver `IMPLEMENTATION_STATUS.md`). **MelatePro no se usa nunca para IAPicks** (ni lectura ni
+Proyecto: `iapicks` (ref `riuetkgrtilwipfkjlfc`, us-east-1). **MelatePro no se usa nunca para IAPicks** (ni lectura ni
 escritura).
 
 1. Migraciones en orden: `202610240001_initial_schema.sql` → `202610280001_hardening.sql`.
-2. Con CLI: `supabase link --project-ref <ref-de-iapicks> && supabase db push`, o con el SQL Editor (una ejecución por
+2. Con CLI: `supabase link --project-ref riuetkgrtilwipfkjlfc && supabase db push`, o con el SQL Editor (una ejecución por
    archivo, en orden).
 3. Verificar: los 3 triggers `vanta_*`, `data_sources`, las 2 vistas; después ejecutar
    `supabase/tests/remote_verify.sql` (una sola sentencia que siempre termina en excepción y revierte todo): debe
    terminar con `VANTA_REMOTE_SUITE_PASSED: 41/41`.
 4. Auth: activar confirmación de correo; longitud mínima 10; URLs de redirección de la web.
-5. Tipos TypeScript: `supabase gen types typescript --project-id <ref-de-iapicks> > packages/shared/src/database.types.ts`.
+5. Tipos TypeScript: `supabase gen types typescript --project-id riuetkgrtilwipfkjlfc > packages/shared/src/database.types.ts`.
 
 ## 3. Vercel
 
-Proyecto propio conectado a este repositorio:
+Proyecto propio conectado a este repositorio (crearlo en el panel: *Add New → Project* → importar `cachirulesfcmx-cpu/IAPicks`, nombre `iapicks`):
 
 1. **Root Directory**: `apps/web` · Framework: Next.js · "Include files outside the root directory": activado.
    `apps/web/vercel.json` fija `installCommand: cd ../.. && npm ci`, `buildCommand: next build`, `outputDirectory: .next`.
