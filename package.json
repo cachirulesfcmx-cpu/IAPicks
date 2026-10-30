@@ -1,0 +1,31 @@
+{
+  "name": "vanta-edge",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:web": "npm --workspace apps/web run dev",
+    "dev:mobile": "npm --workspace apps/mobile run start",
+    "build:web": "npm --workspace apps/web run build",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "test:sql": "bash supabase/tests/run-local.sh",
+    "test:predictor": "cd services/predictor && python -m pytest -q",
+    "check:secrets": "node scripts/check-secrets.mjs",
+    "check:bundle": "node scripts/check-bundle.mjs",
+    "audit:gate": "node scripts/audit-gate.mjs",
+    "test:rollback": "bash supabase/tests/rollback.test.sh"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "packageManager": "npm@10.8.2",
+  "overrides": {
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  }
+}
