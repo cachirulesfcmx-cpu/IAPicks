@@ -188,6 +188,9 @@ p { margin: 0; }
 .row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
 .between { justify-content: space-between; }
 .error { color: #ffb3a8; }
+.field-msg { font-size: 11.5px; font-weight: 600; color: #ffb3a8; }
+.field-error input { border-color: rgba(255, 107, 107, 0.6); }
+.log-error { grid-column: 1 / -1; margin: 0; }
 .team-list { list-style: none; padding: 0; margin: 12px 0 0; display: grid; }
 .team-list li { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--line); }
 
@@ -222,13 +225,13 @@ p { margin: 0; }
 .hero-glow { position: absolute; width: 260px; height: 260px; right: -80px; top: -90px; border-radius: 50%; background: var(--emerald); filter: blur(110px); opacity: 0.35; }
 .hero > :not(.hero-glow) { position: relative; z-index: 1; }
 .hero-greet { color: var(--mint); font-size: 13px; font-weight: 600; }
-.hero-title { font-size: clamp(38px, 11vw, 72px); margin: 12px 0 14px; }
+.hero-title { font-size: clamp(36px, 10.4vw, 72px); margin: 10px 0 12px; }
 .hero-title em { display: inline-block; }
 .hero-copy { color: var(--text-2); font-size: 15px; max-width: 560px; }
-.hero-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 20px; }
-.hero-stats div { display: grid; gap: 2px; padding: 12px 14px; border-radius: var(--r-md); background: rgba(5, 11, 9, 0.45); border: 1px solid var(--line); backdrop-filter: blur(6px); }
-.hero-stats strong { font: 900 26px/1 var(--font-d); letter-spacing: -0.03em; }
-.hero-stats span { font-size: 11.5px; color: var(--text-2); }
+.hero-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 20px; }
+.hero-stats div { display: grid; gap: 2px; padding: 10px; min-width: 0; border-radius: var(--r-md); background: rgba(5, 11, 9, 0.45); border: 1px solid var(--line); backdrop-filter: blur(6px); }
+.hero-stats strong { font: 900 22px/1 var(--font-d); letter-spacing: -0.03em; }
+.hero-stats span { font-size: 10.5px; line-height: 1.25; color: var(--text-2); }
 .hero-demo { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-top: 16px; font-size: 12px; color: var(--text-2); }
 
 .quick { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
@@ -455,8 +458,9 @@ p { margin: 0; }
 
 /* ---------- Larger phones ---------- */
 @media (min-width: 420px) {
-  .hero-stats { grid-template-columns: repeat(4, 1fr); }
   .hero-stats div { padding: 12px; }
+  .hero-stats strong { font-size: 26px; }
+  .hero-stats span { font-size: 11.5px; }
 }
 
 /* ---------- Tablet ---------- */

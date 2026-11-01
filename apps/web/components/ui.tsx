@@ -200,12 +200,13 @@ export function PickCard({ pick, game }: { pick: Pick; game: Game | null }) {
         <p className="pick-sub">{game ? `${kickoffDay(game.startsAt)} · ${kickoffTime(game.startsAt)}` : SPORT_LABELS[pick.sport]}</p>
         <div className="pick-tags">
           <span className="tag tag-market">{pick.market}</span>
-          <span className={`tag ${pick.probability == null ? 'tag-muted' : 'tag-pos'}`}>{pick.selection}</span>
+          {/* Without a published probability the selection is only a placeholder, so it is not repeated as a tag. */}
+          {pick.probability != null ? <span className="tag tag-pos">{pick.selection}</span> : null}
         </div>
       </div>
       <div className="pick-side">
         {pick.probability != null ? <ProbabilityRing value={pick.probability} size={52} /> : (
-          <span className="no-prob" title="Sin probabilidad publicada"><Lock size={14} aria-hidden />Sin prob.</span>
+          <span className="no-prob" title="Sin probabilidad publicada"><Lock size={14} aria-hidden />Sin pronóstico publicado</span>
         )}
         {pick.odds != null ? <span className="odds">cuota <strong>{pick.odds.toFixed(2)}</strong></span> : null}
       </div>

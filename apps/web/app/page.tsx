@@ -42,7 +42,7 @@ export default async function Home() {
         <div className="hero-stats">
           <div><strong>{today.length}</strong><span>partidos hoy</span></div>
           <div><strong>{upcoming.length}</strong><span>próximos</span></div>
-          <div><strong>{SPORTS.length}</strong><span>competiciones</span></div>
+          <div><strong>{SPORTS.length}</strong><span>torneos</span></div>
           <div><strong className={approved ? 'tone-pos' : ''}>{approved}/{evaluated}</strong><span>modelos aprobados</span></div>
         </div>
         {provider.isDemo ? <p className="hero-demo"><DemoBadge>DEMO</DemoBadge> Partidos ficticios para mostrar la experiencia. Sin cuotas en vivo ni picks reales.</p> : null}
