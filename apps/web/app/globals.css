@@ -317,7 +317,7 @@ p { margin: 0; }
 /* ---------- Stats ---------- */
 .stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
 .stat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
-.stat-grid-3 { grid-template-columns: repeat(3, 1fr); }
+.stat-grid.stat-grid-3 { grid-template-columns: repeat(3, 1fr); }
 .stat-tile { display: grid; gap: 3px; padding: 14px; border-radius: var(--r-md); background: linear-gradient(180deg, var(--surface-2), var(--surface)); border: 1px solid var(--line); min-width: 0; }
 .stat-label { font-size: 10.5px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-3); line-height: 1.25; min-height: 2.5em; }
 .stat-value { font: 900 24px/1.1 var(--font-d); letter-spacing: -0.03em; }
