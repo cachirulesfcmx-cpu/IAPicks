@@ -1,5 +1,5 @@
 // Visual review: full-page screenshots of every main screen at 4 viewports, plus console/HTTP/overflow checks.
-// Usage: BASE_URL=https://<url> OUT=/tmp/shots node apps/web/e2e/visual.mjs
+// Usage: BASE_URL=https://<url> OUT=/tmp/shots [VERCEL_SHARE_TOKEN=…] node apps/web/e2e/visual.mjs
 import { createRequire } from 'node:module';
 import { mkdirSync, writeFileSync } from 'node:fs';
 
@@ -20,6 +20,12 @@ const report = [];
 for (const [label, opts] of VIEWPORTS) {
   const { width, height, ...rest } = opts;
   const ctx = await browser.newContext({ viewport: { width, height }, ...rest });
+  // Protected Vercel previews: pass a temporary share token via VERCEL_SHARE_TOKEN (never commit it).
+  if (process.env.VERCEL_SHARE_TOKEN) {
+    const p = await ctx.newPage();
+    await p.goto(`${BASE}/?_vercel_share=${process.env.VERCEL_SHARE_TOKEN}`, { waitUntil: 'networkidle' });
+    await p.close();
+  }
   for (const path of PAGES) {
     const page = await ctx.newPage();
     const issues = [];
