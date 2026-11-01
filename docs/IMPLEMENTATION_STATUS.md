@@ -8,6 +8,7 @@ Leyenda: **Verificado local** = ejecutado en el entorno de desarrollo · **Verif
 | Build web (Next 16.4) | Completo · Verificado local + CI | `npm run build:web` exit 0 (antes FAIL por React duplicado) | — |
 | Web: lint / typecheck / tests | Completo · Verificado local + CI | ESLint 0 avisos · tsc 0 · 23 tests | — |
 | Web: páginas y API | Completo (modo demo) | 22/22 smoke local, en Preview y en producción | — |
+| Web: diseño (IA Picks) | Rediseño premium mobile-first · Verificado local | Sistema de diseño propio, 9 pantallas (incl. detalle de pick y Bankroll local), escudos generados por colores del club (sin logos con licencia: `Team.logoUrl` vacío), arte deportivo SVG original; Playwright 36/36 (390/430/768/1366 px), smoke 22/22 | Fotos de jugadores, escudos oficiales y estadísticas: requieren proveedor con licencia |
 | Paquete compartido | Completo | 10 tests | — |
 | App Expo | Completo (modo demo) | `expo` 58.0.22 · `expo-router` 58.0.29 · `expo install --check` limpio · tsc · lint · 3 tests · expo-doctor 20/20 · export Android+iOS | Builds EAS (bloqueado: cuenta) |
 | Predictor | Completo (investigación) | 43 tests; backtests reales Liga MX y NFL | Datos para UCL/LaLiga/MLB/NBA |
