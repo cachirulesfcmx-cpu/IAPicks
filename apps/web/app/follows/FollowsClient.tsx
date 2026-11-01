@@ -36,7 +36,7 @@ export default function FollowsClient() {
     });
   }, [db, session]);
 
-  if (!db) return <div className="empty glass" role="status"><h3>Cuentas no disponibles</h3><p>Este entorno no tiene Supabase configurado (modo demostración).</p></div>;
+  if (!db) return <div className="empty" role="status"><h3>Cuentas no disponibles</h3><p>Este entorno no tiene Supabase configurado (modo demostración).</p></div>;
 
   async function auth(mode: 'in' | 'up') {
     if (!db) return;
@@ -66,7 +66,7 @@ export default function FollowsClient() {
 
   if (!session) {
     return (
-      <form className="glass panel form" onSubmit={(e) => { e.preventDefault(); auth('in'); }} aria-describedby="auth-help">
+      <form className="panel form" onSubmit={(e) => { e.preventDefault(); auth('in'); }} aria-describedby="auth-help">
         <p id="auth-help" className="muted">Inicia sesión para guardar equipos. Solo mayores de 18 años.</p>
         <label>Correo<input type="email" autoComplete="email" value={email} onChange={(e) => setEmail(e.target.value)} required /></label>
         <label>Contraseña<input type="password" autoComplete="current-password" minLength={10} value={password} onChange={(e) => setPassword(e.target.value)} required /></label>
@@ -81,7 +81,7 @@ export default function FollowsClient() {
   }
 
   return (
-    <div className="glass panel">
+    <div className="panel">
       <div className="row between"><span className="muted">{session.user.email}</span><button className="btn btn-ghost" onClick={() => db.auth.signOut()}>Cerrar sesión</button></div>
       {msg ? <p role="alert" className="error">{msg}</p> : null}
       {teams.length === 0 ? <p className="muted">Aún no hay equipos cargados desde un proveedor de datos.</p> : (
