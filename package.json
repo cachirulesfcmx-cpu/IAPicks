@@ -21,7 +21,7 @@
     "test:rollback": "bash supabase/tests/rollback.test.sh"
   },
   "engines": {
-    "node": ">=20.19.0"
+    "node": "22.x"
   },
   "packageManager": "npm@10.8.2",
   "overrides": {
