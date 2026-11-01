@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        with: { node-version: 22, cache: npm }
+        with: { node-version-file: .nvmrc, cache: npm }
       - run: node scripts/check-secrets.mjs
       - run: npm ci
       - run: npm run audit:gate
@@ -27,7 +27,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        with: { node-version: 22, cache: npm }
+        with: { node-version-file: .nvmrc, cache: npm }
       - run: npm ci
       - run: npm --workspace packages/shared run typecheck
       - run: npm --workspace packages/shared test
@@ -43,7 +43,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        with: { node-version: 22, cache: npm }
+        with: { node-version-file: .nvmrc, cache: npm }
       - run: npm ci
       - run: npm --workspace apps/web run lint
       - run: npm --workspace apps/web run typecheck
@@ -57,7 +57,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        with: { node-version: 22, cache: npm }
+        with: { node-version-file: .nvmrc, cache: npm }
       - run: npm ci
       - working-directory: apps/mobile
         run: |
